@@ -17,33 +17,20 @@ const App = () => {
   const onItemClicked = (data) => {
     setItem(data);
   }
-  const onBackBtn = () => {
-    setItem('');
-  }
+
   return (
     <Router>
-     <ul>
-       <li> <Link to="/">Product Page</Link> </li>
-
-       <li> <Link to="/productDeteil">Product Details</Link> </li>
-     </ul>
       <Switch>
-      
         <Route exact path={'/'}>
           {<Product onItemClicked={onItemClicked} />}
         </Route>
-        <Route exact path={'/productDeteil'}>
-          <ProductDetail details={item} onBackBtn={onBackBtn} />
+        <Route exact path={'/productDeteil/:id'}>
+          <ProductDetail details={item}  />
         </Route>
-        <Route exact path={'/404'}>
-
-          <h1>404 NOT FOUND.........</h1>
-
-        </Route>
-        <Route path={'*'} render={() => <Redirect path={'/404'} />} />
-
-
-
+         <Route exact path={'/404'}>
+          <h1 className="not-found">404 PAGE NOT FOUND.........</h1>
+        </Route> 
+         <Route path={'*'} render={() => <Redirect to='/404' />} /> 
       </Switch>
 
       {

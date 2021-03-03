@@ -8,6 +8,7 @@ import {
 
 const Navbar = () => {
     return (
+        <>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <Link class="nav-item nav-link active" to={'/'}>
@@ -16,12 +17,11 @@ const Navbar = () => {
                 <Link class="nav-item nav-link" to={'/productDeteil'}>
                     Details Page
                 </Link>
-                <Link class="nav-item nav-link" href="#">
-                    Pricing
-                </Link>
+                
                 
             </div>
         </div>
+        </>
     );
 };
 
