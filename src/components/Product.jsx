@@ -50,7 +50,7 @@ const Product = (props) => {
   ]);
   const history=useHistory();
   const  clickHandler =(id)=>{
-    // console.log(name,'name');
+  
     history.push(`/productDeteil/${id}`)
 
   }
@@ -62,13 +62,13 @@ const Product = (props) => {
           <div key={id} onClick={() => props.onItemClicked(data)}>
             <div class="card g-gradient-secondary text-dark">
               <div class="card-body">
-                <h5 class="card-title">
-                  {id + 1} {data.name}{" "}
-                  <button onClick={()=>clickHandler(data.name)} className="btn btn-info ">
+                <h5 class="card-title text-danger">
+                  {id + 1}: <b>product Name:</b> {data.name}{" "}
+                  <button onClick={()=>clickHandler(data.id)} className="btn btn-info ">
                     Click Here more details
                   </button>
                 </h5>
-                <p class="card-text">price :{data.price}.</p>
+                <p class="card-text text-success">price :{data.price}.</p>
               </div>
             </div>
           </div>
