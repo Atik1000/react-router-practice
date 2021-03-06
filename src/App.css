@@ -75,6 +75,15 @@
   margin-left:45%;
 }
 
-button{
-  margin-left: 84%;
+
+img{
+  height: 200px;
+  width: 200px;
+}
+.card{
+  margin-left: 40%;
+}
+.card-img-top{
+  width: 35%;
+  margin-left: 30%;
 }
