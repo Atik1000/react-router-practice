@@ -8,76 +8,83 @@ const UpdateProduct = () => {
   const [product, setProduct] = useState({
     title: "",
     description: "",
-    category: "",  
-    price: ""
+    category: "",
+    price: "",
   });
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategroy] = useState("");
 
-
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    axios.patch(`https://fakestoreapi.com/products/${id}`, name,description,price,category);
+    axios.patch(
+      `https://fakestoreapi.com/products/${id}`,
+      name,
+      description,
+      price,
+      category
+    );
     history.push("/");
   };
+  console.log(name,price,category,description,'==update value');
 
-  const loadProduct = async () => {
-    const result = await axios.get(`https://fakestoreapi.com/products/${id}`);
-    setProduct(result.data);
-  };
+  //   const loadProduct = async () => {
+  //     const result = await axios.get(`https://fakestoreapi.com/products/${id}`);
+  //     setProduct(result.data);
+  //   };
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
         <h2 className="text-center mb-4">Update The Product</h2>
-     
-          <div className="form-group">
+
+        <div className="form-group">
           <input
-        type="text"
-        class="form-control"
-        placeholder="username"
-        value={name}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-      ></input>
-          </div>
-          <div className="form-group">
+            type="text"
+            class="form-control"
+            placeholder="username"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          ></input>
+        </div>
+        <div className="form-group">
           <input
-        type="text"
-        class="form-control"
-        placeholder="username"
-        value={description}
-        onChange={(e) => {
-            setDescription(e.target.value);
-        }}
-      ></input>
-          </div>
-          <div className="form-group">
+            type="text"
+            class="form-control"
+            placeholder="username"
+            value={description}
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+          ></input>
+        </div>
+        <div className="form-group">
           <input
-        type="text"
-        class="form-control"
-        placeholder="username"
-        value={price}
-        onChange={(e) => {
-            setPrice(e.target.value);
-        }}
-      ></input>
-          </div>
-          <div className="form-group">
+            type="text"
+            class="form-control"
+            placeholder="username"
+            value={price}
+            onChange={(e) => {
+              setPrice(e.target.value);
+            }}
+          ></input>
+        </div>
+        <div className="form-group">
           <input
-        type="text"
-        class="form-control"
-        placeholder="username"
-        value={category}
-        onChange={(e) => {
-            setCategroy(e.target.value);
-        }}
-      ></input>
-          </div>
-          <button onClick={onSubmit} className="btn btn-primary btn-block">Update product</button>
-     
+            type="text"
+            class="form-control"
+            placeholder="username"
+            value={category}
+            onChange={(e) => {
+              setCategroy(e.target.value);
+            }}
+          ></input>
+        </div>
+        <button onClick={onSubmit} className="btn btn-primary btn-block">
+          Update product
+        </button>
       </div>
     </div>
   );
