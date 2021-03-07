@@ -5,30 +5,42 @@ import axios from "axios";
 import Loading from "./Loading";
 
 const ProductDetail = (props) => {
-  // const params = useParams();
+  const params = useParams();
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState([]);
+  const [found,setFound]=useState(null)
 
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(`https://fakestoreapi.com/products/${id}`)
+      .get(`https://jsonplaceholder.typicode.com/posts/${id}/`)
       .then((res) => {
         setProduct(res.data);
         setLoading(false);
       })
       .catch((err) => {
         console.log(err.data);
+        setLoading(false);
+        setFound(err.data)
       });
   }, []);
 
+  console.log(product);
+
   return (
     <div className="container">
-      {loading === true ? (
+      { loading === true ? (
         <div>
           <Loading />
         </div>
-      ) : (
+      ) 
+      :
+      found===undefined ? (
+        <h1>Page Not Found</h1>
+      ) :
+
+      
+      (
         <div className="container">
           <div class="card mb-3">
             <div class="row g-0">

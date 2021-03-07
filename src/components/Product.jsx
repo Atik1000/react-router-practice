@@ -13,7 +13,7 @@ export default function Product(props) {
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
+      .get("https://jsonplaceholder.typicode.com/posts")
       .then(function (response) {
         // handle success
 
@@ -38,7 +38,7 @@ export default function Product(props) {
       ) : (
         product.map((product, id) => {
           return (
-            <div key={id} onClick={() => props.onItemClicked(product)}>
+            <div key={id} onClick={() => clickHandler(product.id)}>
               <div class="container">
                 <div class="row">
                   <div class="col">

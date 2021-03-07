@@ -34,7 +34,7 @@ const App = () => {
             {<Product onItemClicked={onItemClicked} />}
           </Route>
           <Route exact path={'/productDeteil/:id'}>
-            <ProductDetail details={item} />
+            <ProductDetail />
 
           </Route>
           <Route exact path={'/create'}>

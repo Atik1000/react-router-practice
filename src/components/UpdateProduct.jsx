@@ -19,7 +19,7 @@ const UpdateProduct = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     axios.patch(
-      `https://fakestoreapi.com/products/${id}`,
+      `https://jsonplaceholder.typicode.com/posts/${id}`,
       name,
       description,
       price,
@@ -27,12 +27,17 @@ const UpdateProduct = () => {
     );
     history.push("/");
   };
+  useEffect(() => {
+    loadProduct();
+  }, []);
+  
   console.log(name,price,category,description,'==update value');
 
-  //   const loadProduct = async () => {
-  //     const result = await axios.get(`https://fakestoreapi.com/products/${id}`);
-  //     setProduct(result.data);
-  //   };
+    const loadProduct = async () => {
+      const result = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      setProduct(result.data);
+      console.log(result.data);
+    };
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
