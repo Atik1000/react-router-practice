@@ -10,22 +10,28 @@ export default function Product(props) {
   const clickHandler = (id) => {
     history.push(`/productDeteil/${id}`);
   };
+
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
-      .then((res) => {
-        setProduct(res.data);
+      .then(function (response) {
+        // handle success
+
+        setProduct(response.data);
         setLoader(false);
-        console.log(res.data, "==res data");
+        console.log(response.data, "==success");
       })
-      .catch((err) => {
-        console.log(err.data, "==res.data");
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        console.log("API doenot response plz wait");
       });
-  }, []);
+  });
 
   return (
     <>
-    
       <h2 className="mt-3 pt-3 pb-3 text-center ">Product page</h2>
       {loader ? (
         <Loading />

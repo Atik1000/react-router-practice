@@ -5,7 +5,7 @@ import axios from "axios";
 import Loading from "./Loading";
 
 const ProductDetail = (props) => {
-  const params = useParams();
+  // const params = useParams();
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState([]);
 
